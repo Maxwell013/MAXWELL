@@ -6,7 +6,10 @@ extern Maxwell::Application* Maxwell::createApplication();
 
 int main(int p_argc, char** p_argv) {
 
-	printf("Maxwell Engine\n");
+	Maxwell::Log::init();
+
+	MW_CORE_TRACE("Maxwell Engine");
+	MW_TRACE("Sandbox!");
 
 	Maxwell::Application* application = Maxwell::createApplication();
 
