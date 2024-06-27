@@ -9,3 +9,5 @@
 #else
 	#error Maxwell only supports Windows!
 #endif // MW_PLATFORM_WINDOWS
+
+#define BIT(x) (1 << x)
