@@ -21,6 +21,9 @@ project "MAXWELL"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "mwpch.h"
+	pchsource "MAXWELL/src/mwpch.cpp"
+
 	files {
 
 		"%{prj.name}/src/**.h",
@@ -29,7 +32,7 @@ project "MAXWELL"
 
 	includedirs {
 
-		"%{prj.name}/src"
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 

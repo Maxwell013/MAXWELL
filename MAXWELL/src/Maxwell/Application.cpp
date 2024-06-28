@@ -1,3 +1,5 @@
+#include "mwpch.h"
+
 #include "Maxwell/Events/ApplicationEvent.h"
 
 #include "Log.h"
