@@ -67,7 +67,7 @@ namespace Maxwell {
 			: m_event(p_event) {}
 
 		template<typename T>
-		bool Dispatch(EventFn<T> p_function) {
+		bool dispatch(EventFn<T> p_function) {
 
 			if (m_event.getEventType() == T::getStaticType()) {
 

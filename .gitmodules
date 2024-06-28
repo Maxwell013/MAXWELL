@@ -1,3 +1,9 @@
 [submodule "MAXWELL/vendor/spdlog"]
 	path = MAXWELL/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "glfw"]
+	path = glfw
+	url = https://github.com/TheCherno/glfw
+[submodule "MAXWELL/vendor/GLFW"]
+	path = MAXWELL/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
