@@ -1,8 +1,10 @@
 #pragma once
 
 #include "Core.h"
-#include "Maxwell/Events/ApplicationEvent.h"
 #include "Window.h"
+#include "Maxwell/LayerStack.h"
+#include "Maxwell/Events/Event.h"
+#include "Maxwell/Events/ApplicationEvent.h"
 
 namespace Maxwell {
 
@@ -12,6 +14,7 @@ namespace Maxwell {
 
 		bool m_running = true;
 		std::unique_ptr<Window> m_window;
+		LayerStack m_layerStack;
 
 		bool onWindowClosed(WindowCloseEvent& p_event);
 
@@ -23,6 +26,9 @@ namespace Maxwell {
 		void run();
 
 		void onEvent(Event& p_event);
+
+		void pushLayer(Layer* p_layer);
+		void pushOverlay(Layer* p_overlay);
 	};
 
 	Application* createApplication();

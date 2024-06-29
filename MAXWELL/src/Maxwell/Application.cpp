@@ -20,17 +20,35 @@ namespace Maxwell {
 
 		while (m_running) {
 
+			for (Layer* layer : m_layerStack)
+				layer->onUpdate();
+
 			m_window->onUpdate();
 		}
 	}
 
 	void Application::onEvent(Event& p_event) {
 	
-		MW_CORE_TRACE(p_event);
-
 		EventDispatcher dispatcher(p_event);
 
 		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(onWindowClosed));
+
+		for (std::vector<Layer*>::iterator iterator = m_layerStack.end(); iterator != m_layerStack.begin(); ) {
+
+			(*--iterator)->onEvent(p_event);
+			if (p_event.isHandled())
+				break;
+		}
+	}
+
+	void Application::pushLayer(Layer* p_layer) {
+
+		m_layerStack.pushLayer(p_layer);
+	}
+
+	void Application::pushOverlay (Layer* p_overlay) {
+
+		m_layerStack.pushOverlay(p_overlay);
 	}
 
 	bool Application::onWindowClosed(WindowCloseEvent& p_event) {

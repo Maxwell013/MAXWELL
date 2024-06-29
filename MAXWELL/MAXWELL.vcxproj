@@ -84,6 +84,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -110,6 +111,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -137,6 +139,7 @@
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
@@ -160,6 +163,8 @@
     <ClInclude Include="src\Maxwell\Events\Event.h" />
     <ClInclude Include="src\Maxwell\Events\KeyEvent.h" />
     <ClInclude Include="src\Maxwell\Events\MouseEvent.h" />
+    <ClInclude Include="src\Maxwell\Layer.h" />
+    <ClInclude Include="src\Maxwell\LayerStack.h" />
     <ClInclude Include="src\Maxwell\Log.h" />
     <ClInclude Include="src\Maxwell\Window.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -167,6 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Maxwell\Application.cpp" />
+    <ClCompile Include="src\Maxwell\Layer.cpp" />
+    <ClCompile Include="src\Maxwell\LayerStack.cpp" />
     <ClCompile Include="src\Maxwell\Log.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mwpch.cpp">

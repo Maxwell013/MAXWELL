@@ -37,6 +37,12 @@
     <ClInclude Include="src\Maxwell\Events\MouseEvent.h">
       <Filter>Maxwell\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Maxwell\Layer.h">
+      <Filter>Maxwell</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Maxwell\LayerStack.h">
+      <Filter>Maxwell</Filter>
+    </ClInclude>
     <ClInclude Include="src\Maxwell\Log.h">
       <Filter>Maxwell</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Maxwell\Application.cpp">
+      <Filter>Maxwell</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Maxwell\Layer.cpp">
+      <Filter>Maxwell</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Maxwell\LayerStack.cpp">
       <Filter>Maxwell</Filter>
     </ClCompile>
     <ClCompile Include="src\Maxwell\Log.cpp">

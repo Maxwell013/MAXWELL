@@ -44,8 +44,9 @@ namespace Maxwell {
 		virtual EventType getEventType() const = 0;
 		virtual const char* getName() const = 0;
 		virtual int getCategoryFlags() const = 0;
-		virtual std::string toString() const { return getName(); }
+		virtual inline std::string toString() const { return getName(); }
 
+		inline bool isHandled() const { return m_handled; }
 		inline bool isInCategory(EventCategory p_category) const {
 
 			return getCategoryFlags() & p_category;
