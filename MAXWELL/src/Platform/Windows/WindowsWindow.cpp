@@ -1,5 +1,7 @@
 #include "mwpch.h"
 
+#include <glad/glad.h>
+
 #include "Maxwell/Events/ApplicationEvent.h"
 #include "Maxwell/Events/MouseEvent.h"
 #include "Maxwell/Events/KeyEvent.h"
@@ -47,8 +49,13 @@ namespace Maxwell {
 			s_glfwInitialized = true;
 		}
 
+
 		m_window = glfwCreateWindow((int)m_data.width, (int)m_data.height, m_data.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_window);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		MW_CORE_ASSERT(status, "Could not initialize Glad!");
+
 		glfwSetWindowUserPointer(m_window, &m_data);
 		setVSync(true);
 
