@@ -108,6 +108,14 @@ namespace Maxwell {
 			}
 		});
 
+		glfwSetCharCallback(m_window, [](GLFWwindow* p_window, unsigned int p_key) {
+
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(p_window);
+
+			KeyTypedEvent event(p_key);
+			data.eventCallback(event);
+		});
+
 		glfwSetMouseButtonCallback(m_window, [](GLFWwindow* p_window, int p_button, int p_action, int p_mods) {
 
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(p_window);

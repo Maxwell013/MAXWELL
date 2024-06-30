@@ -65,4 +65,23 @@ namespace Maxwell {
 
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
+
+	class MAXWELL_API KeyTypedEvent : public KeyEvent {
+
+	public:
+
+		KeyTypedEvent(int p_keycode)
+			: KeyEvent(p_keycode) {}
+
+		virtual std::string toString() const override final {
+
+			std::stringstream stream;
+
+			stream << "KeyTypedEvent : " << m_keycode;
+
+			return stream.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyTyped)
+	};
 }

@@ -10,6 +10,10 @@
 	#error Maxwell only supports Windows!
 #endif // MW_PLATFORM_WINDOWS
 
+#ifdef MW_DEBUG
+	#define MW_ENABLE_ASSERTS
+#endif // MW_DEBUG
+
 #ifdef MW_ENABLE_ASSERTS
 	#define MW_CORE_ASSERT(x, ...) { if(!(x) { MW_CORE_ERROR("Assertion failed! : {0}", __VA_ARGS__); __debugbreak(); } }
 	#define MW_ASSERT(x, ...) { if(!(x) { MW_ERROR("Assertion failed! : {0}", __VA_ARGS__); __debugbreak(); } }
@@ -19,3 +23,5 @@
 #endif // MW_ENABLE_ASSERTS
 
 #define BIT(x) (1 << x)
+
+#define MW_BIND_EVENT_FUNCTION(function) std::bind(&function, this, std::placeholders::_1)

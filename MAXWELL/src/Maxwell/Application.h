@@ -12,6 +12,8 @@ namespace Maxwell {
 
 	private:
 
+		static Application* s_instance;
+
 		bool m_running = true;
 		std::unique_ptr<Window> m_window;
 		LayerStack m_layerStack;
@@ -29,6 +31,9 @@ namespace Maxwell {
 
 		void pushLayer(Layer* p_layer);
 		void pushOverlay(Layer* p_overlay);
+
+		inline static Application& get() { return *s_instance; }
+		inline Window& getWindow() { return *m_window; }
 	};
 
 	Application* createApplication();

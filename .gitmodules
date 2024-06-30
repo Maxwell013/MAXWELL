@@ -7,3 +7,6 @@
 [submodule "MAXWELL/vendor/GLFW"]
 	path = MAXWELL/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "MAXWELL/vendor/imgui"]
+	path = MAXWELL/vendor/imgui
+	url = https://github.com/TheCherno/imgui

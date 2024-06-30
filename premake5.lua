@@ -15,15 +15,18 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "MAXWELL/vendor/GLFW/include"
 IncludeDir["Glad"] = "MAXWELL/vendor/Glad/include"
+IncludeDir["ImGui"] = "MAXWELL/vendor/imgui"
 
 include "MAXWELL/vendor/GLFW"
 include "MAXWELL/vendor/Glad"
+include "MAXWELL/vendor/imgui"
 
 project "MAXWELL"
 	
 	location "MAXWELL"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -42,20 +45,21 @@ project "MAXWELL"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links {
 
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
 	filter "system:windows"
 
 		cppdialect "C++20"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines {
@@ -66,25 +70,25 @@ project "MAXWELL"
 
 		postbuildcommands {
 
-			"copy /B /Y ..\\bin\\" .. outputdir .. "\\MAXWELL\\MAXWELL.dll ..\\bin\\" .. outputdir .. "\\Sandbox\\ > nul"
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		
 		defines "HZ_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		
 		defines "HZ_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		
 		defines "HZ_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
@@ -92,6 +96,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -116,7 +121,6 @@ project "Sandbox"
 	filter "system:windows"
 
 		cppdialect "C++20"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines {
@@ -127,17 +131,17 @@ project "Sandbox"
 	filter "configurations:Debug"
 		
 		defines "HZ_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		
 		defines "HZ_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		
 		defines "HZ_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
