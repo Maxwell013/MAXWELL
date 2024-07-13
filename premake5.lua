@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "MAXWELL/vendor/GLFW/include"
 IncludeDir["Glad"] = "MAXWELL/vendor/Glad/include"
 IncludeDir["ImGui"] = "MAXWELL/vendor/imgui"
+IncludeDir["glm"] = "MAXWELL/vendor/glm"
 
 include "MAXWELL/vendor/GLFW"
 include "MAXWELL/vendor/Glad"
@@ -37,7 +38,9 @@ project "MAXWELL"
 	files {
 
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs {
@@ -46,7 +49,8 @@ project "MAXWELL"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links {
@@ -110,7 +114,8 @@ project "Sandbox"
 	includedirs {
 
 		"MAXWELL/vendor/spdlog/include",
-		"MAXWELL/src"
+		"MAXWELL/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links {
