@@ -9,13 +9,11 @@ public:
 
 	virtual void onUpdate() override final {
 	
-		MW_INFO("'ExampleLayer::onUpdate()' called!");
+		if (Maxwell::Input::isKeyPressed(MW_KEY_TAB))
+			MW_TRACE("TAB key was pressed!");
 	}
 
-	virtual void onEvent(Maxwell::Event& p_event) override final {
-
-		MW_INFO("'ExampleLayer::onEvent()' called with event = {0}!", p_event);
-	}
+	virtual void onEvent(Maxwell::Event& p_event) override final {}
 };
 
 class Sandbox : public Maxwell::Application {

@@ -161,12 +161,16 @@
     <ClInclude Include="src\Maxwell\Events\KeyEvent.h" />
     <ClInclude Include="src\Maxwell\Events\MouseEvent.h" />
     <ClInclude Include="src\Maxwell\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Maxwell\Input.h" />
+    <ClInclude Include="src\Maxwell\KeyCodes.h" />
     <ClInclude Include="src\Maxwell\Layer.h" />
     <ClInclude Include="src\Maxwell\LayerStack.h" />
     <ClInclude Include="src\Maxwell\Log.h" />
+    <ClInclude Include="src\Maxwell\MouseButtonCodes.h" />
     <ClInclude Include="src\Maxwell\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mwpch.h" />
   </ItemGroup>
@@ -177,6 +181,7 @@
     <ClCompile Include="src\Maxwell\LayerStack.cpp" />
     <ClCompile Include="src\Maxwell\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mwpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

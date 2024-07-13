@@ -40,7 +40,7 @@ namespace Maxwell {
 		virtual void setVSync(bool p_enabled) override final;
 		virtual bool isVSync() const override final;
 
-
+		inline virtual void* getNativeWindow() const { return m_window; }
 	};
 }
 
