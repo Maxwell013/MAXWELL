@@ -1,5 +1,7 @@
 #include <Maxwell.h>
 
+#include <imgui/imgui.h>
+
 //#include <glm/vec3.hpp>
 //#include <glm/vec4.hpp>
 //#include <glm/mat4x4.hpp>
@@ -28,6 +30,13 @@ public:
 			MW_TRACE("TAB key was pressed!");
 	}
 
+	virtual void onImGuiRender() override final {
+
+		//ImGui::Begin("Test");
+		//ImGui::Text("Hello, World!");
+		//ImGui::End();
+	}
+
 	virtual void onEvent(Maxwell::Event& p_event) override final {}
 };
 
@@ -38,7 +47,6 @@ public:
 	Sandbox() {
 		
 		pushLayer(new ExampleLayer());
-		pushOverlay(new Maxwell::ImGuiLayer());
 	}
 	~Sandbox() {}
 };

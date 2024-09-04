@@ -14,15 +14,6 @@ namespace Maxwell {
 
 		float m_time = 0.0f;
 
-		bool onMouseButtonPressedEvent(MouseButtonPressedEvent& p_event);
-		bool onMouseButtonReleasedEvent(MouseButtonReleasedEvent& p_event);
-		bool onMouseMovedEvent(MouseMovedEvent& p_event);
-		bool onMouseScrolledEvent(MouseScrolledEvent& p_event);
-		bool onKeyPressedEvent(KeyPressedEvent& p_event);
-		bool onKeyReleasedEvent(KeyReleasedEvent& p_event);
-		bool onKeyTypedEvent(KeyTypedEvent& p_event);
-		bool onWindowResizeEvent(WindowResizeEvent& p_event);
-
 	public:
 
 		ImGuiLayer();
@@ -30,7 +21,9 @@ namespace Maxwell {
 
 		virtual void onAttach() override final;
 		virtual void onDetach() override final;
-		virtual void onUpdate() override final;
-		virtual void onEvent(Event& p_event) override final;
+		virtual void onImGuiRender() override final;
+
+		void begin();
+		void end();
 	};
 }

@@ -115,6 +115,7 @@ project "Sandbox"
 
 		"MAXWELL/vendor/spdlog/include",
 		"MAXWELL/src",
+		"MAXWELL/vendor",
 		"%{IncludeDir.glm}"
 	}
 

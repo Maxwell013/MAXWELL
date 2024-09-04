@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Window.h"
+#include "Maxwell/ImGui/ImGuiLayer.h"
 #include "Maxwell/LayerStack.h"
 #include "Maxwell/Events/Event.h"
 #include "Maxwell/Events/ApplicationEvent.h"
@@ -16,6 +17,7 @@ namespace Maxwell {
 
 		bool m_running = true;
 		std::unique_ptr<Window> m_window;
+		ImGuiLayer* m_imGuiLayer;
 		LayerStack m_layerStack;
 
 		bool onWindowClosed(WindowCloseEvent& p_event);

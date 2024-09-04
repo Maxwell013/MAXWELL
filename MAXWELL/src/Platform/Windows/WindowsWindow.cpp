@@ -37,8 +37,6 @@ namespace Maxwell {
 		m_data.width = p_properties.width;
 		m_data.height = p_properties.height;
 
-		MW_CORE_INFO("Creating window {0} ({1}, {2})", m_data.title, m_data.width, m_data.height);
-
 		if (!s_glfwInitialized) {
 
 			int succes = glfwInit();

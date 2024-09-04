@@ -19,6 +19,10 @@ namespace Maxwell {
 
 		m_window = std::unique_ptr<Window>(Window::create());
 		m_window->setEventCallback(MW_BIND_EVENT_FUNCTION(Application::onEvent));
+
+		m_imGuiLayer = new ImGuiLayer();
+
+		pushOverlay(m_imGuiLayer);
 	}
 
 	Application::~Application() {}
@@ -33,6 +37,11 @@ namespace Maxwell {
 
 			for (Layer* layer : m_layerStack)
 				layer->onUpdate();
+
+			m_imGuiLayer->begin();
+			for (Layer* layer : m_layerStack)
+				layer->onImGuiRender();
+			m_imGuiLayer->end();
 
 			m_window->onUpdate();
 		}
